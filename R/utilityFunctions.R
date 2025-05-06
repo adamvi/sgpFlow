@@ -134,14 +134,14 @@ yearIncrement <-
             base_year_pieces_lagged <- outer(as.numeric(unlist(strsplit(base_year, "_"))), c(0, cumsum(year_lags)), "-")
             sort(apply(base_year_pieces_lagged, 2, function(x) paste(x, collapse = "_")))
         } else {
-            as.character(as.numeric(base_year) - rev(c(0, cumsum(year_lags))))
+            sort(as.character(as.numeric(base_year) - rev(c(0, cumsum(year_lags)))))
         }
     } ### End yearIncrement
 
 ### get.loss.hoss
 get.loss.hoss <-
     function(state, content_area, grade) {
-        return(sgpFlow::sgpFlowStateData[[state]][["Achievement"]][["Knots_Boundaries"]][[content_area]][[paste("boundaries", grade, sep = "_")]])
+        return(sgpFlow::sgpFlowStateData[[state]][["Achievement"]][["Knots_Boundaries"]][[content_area]][[paste("loss.hoss", grade, sep = "_")]])
     }
 
 

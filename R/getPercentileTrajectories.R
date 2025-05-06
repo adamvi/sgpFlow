@@ -33,7 +33,7 @@
 #'   # Example usage
 #'   trajectories <- getPercentileTrajectories(
 #'     wide_data = student_data,
-#'     state = "NY",
+#'     state = "DEMO",
 #'     sgpFlow.config = sgp_config_list,
 #'     projection.splineMatrices = spline_matrices_list,
 #'     growth.distribution = "UNIFORM_RANDOM",
@@ -80,7 +80,9 @@ getPercentileTrajectories <-
             ))
         }
         if (csem.perturbation.iterations==0) csem.perturbation.of.initial.scores <- FALSE
-        if (csem.perturbation.of.initial.scores & iterate.without.csem.perturbation) stop("Conflicting arguments: Both csem.perturbation.of.initial.scores and iterate.without.csem.perturbation set to TRUE.\nAt least one of the arguments must be set to FALSE.")
+        if (csem.perturbation.of.initial.scores & iterate.without.csem.perturbation)
+            stop("Conflicting arguments: Both csem.perturbation.of.initial.scores and iterate.without.csem.perturbation set to TRUE.
+                \nAt least one of the arguments must be set to FALSE.")
         if (!csem.perturbation.of.initial.scores & !iterate.without.csem.perturbation) csem.perturbation.iterations <- 0L
 
         ## Parameters
