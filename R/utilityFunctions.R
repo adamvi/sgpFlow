@@ -142,7 +142,7 @@ yearIncrement <-
             base_year_pieces_lagged <- outer(as.numeric(unlist(strsplit(base_year, "_"))), c(0, cumsum(year_lags)), "-")
             sort(apply(base_year_pieces_lagged, 2, function(x) paste(x, collapse = "_")))
         } else {
-            as.character(as.numeric(base_year) - rev(c(0, cumsum(year_lags))))
+            sort(as.character(as.numeric(base_year) - rev(c(0, cumsum(year_lags)))))
         }
     } ### End yearIncrement
 
